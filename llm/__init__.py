@@ -6,7 +6,7 @@ def CreateLLMInstance(config: dict) -> LLM:
     llm_type = config.get("llm", "lmcache")
     match llm_type:
         case "lmcache":
-            return LMCache(config)
+            return LMCache(config["lmcache"])
         case "vllm":
             return NotImplementedError("vllm backend is not implemented")
         case _:

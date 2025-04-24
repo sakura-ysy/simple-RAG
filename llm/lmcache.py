@@ -14,7 +14,7 @@ class LMCache(LLM):
         self.tensor_parallel_size = config.get("tensor_parallel_size", 1)
         self.max_tokens = config.get("max_tokens", 30)
 
-        self.llm = LLM(model=self.model, gpu_memory_utilization=self.gpu_memory_utilization, tensor_parallel_size=1)
+        self.llm = LLM(model=self.model, gpu_memory_utilization=self.gpu_memory_utilization, tensor_parallel_size=1, dtype="half")
 
         self.sampling_params = SamplingParams(temperature=0.0,
                                                     top_p=0.95,

@@ -13,7 +13,7 @@ with open(config_path, 'r', encoding='utf-8') as file:
     config = yaml.safe_load(file)
 
 vdb = CreateVDBInstance(config)
-llm = CreateLLMInstance(config)
+# llm = CreateLLMInstance(config)
 
 # insert some chunks to vdb through local file
 file_path = "documents/doc1.txt"
@@ -32,8 +32,8 @@ source_documents = asyncio.run(rerank_backend.arerank_documents(query, source_do
 sys_prompt = "You are a helpful assistant. Answer the question based on the context provided."
 user_prompt = [sys_prompt] + [chunk for chunk in source_documents] + [query]
 user_prompt = combine_input_prompt_chunks(user_prompt)
-llm_response = llm.generate([user_prompt])
-print("llm_response:", llm_response)
+# llm_response = llm.generate([user_prompt])
+# print("llm_response:", llm_response)
 
 
 
