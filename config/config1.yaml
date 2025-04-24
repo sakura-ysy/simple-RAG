@@ -1,0 +1,24 @@
+vdb: "milvus"
+llm: "lmcache"
+
+milvus:
+  uri: "http://localhost:19540"
+  collection_name: "ysy_collection"
+  chunk_size: 512
+  use_old: true
+
+rerank:
+  use_cpu: flase 
+  max_length: 512
+  batch_size: 4
+  thread: 4
+  rerank_model: "/home/ysy/llm/maidalun/bce-reranker-base_v1"
+
+lmcache:
+  model: "/data/llm/Mistral-7B-Instruct-v0.2"
+  gpu_memory_utilization: 0.8
+  tensor_parallel: 1
+  max_tokens: 30
+
+
+
